@@ -29,7 +29,6 @@ for _ in 0..<x {
     case .empty:
         print(stack.isEmpty ? "1" : "0")
     case .top:
-        let result = stack.isEmpty ? "-1" : stack.last!
-        print(result)
+        print(stack.isEmpty ? "-1" : stack.last!)
     }
 }
