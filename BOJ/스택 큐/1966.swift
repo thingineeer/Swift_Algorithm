@@ -11,7 +11,7 @@ let x = Int(readLine()!)!
 
 for _ in 0..<x {
     
-    var q: [Int] = readLine()!.split(separator: " ").compactMap { Int($0) }
+    let q: [Int] = readLine()!.split(separator: " ").compactMap { Int($0) }
     var priority: [Int] = readLine()!.split(separator: " ").compactMap { Int($0) }
     var ind = Array(0..<q[0])
     var cnt: Int = 0
