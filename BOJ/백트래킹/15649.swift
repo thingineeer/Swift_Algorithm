@@ -1,8 +1,8 @@
 //
-//  main.swift
-//  코테
+//  15649.swift
+//  N과 M
 //
-//  Created by 이명진 on 4/15/24.
+//  Created by 이명진 on 4/8/24.
 //
 
 func backtracking() {
