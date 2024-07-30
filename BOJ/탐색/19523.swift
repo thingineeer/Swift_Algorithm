@@ -7,6 +7,7 @@
 
 // Ax + By = C
 // Dx + Ey = F
+// 완탐으로 해도 시간 복잡도 문제 X
 
 import Foundation
 
