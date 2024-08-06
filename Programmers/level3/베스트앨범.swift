@@ -17,23 +17,21 @@ func map(_ genres: [String], _ plays: [Int]) -> [Record] {
     return records
 }
 
-func getGenrePlayCount(_ genres: [String], _ record: [Record], _ genre: Set<String>) -> [(String, Int)] {
-    var specificGenre: [(String, Int)] = []
-    
-    for g in genre {
-        let numOfPlays = record.filter { $0.name == g }.map { $0.count }.reduce(0, +)
-        specificGenre.append((g, numOfPlays))
-    }
-    
-    return specificGenre.sorted { $0.1 > $1.1 }
-}
+func getGenrePlayCount(_ record: [Record], _ genre: Set<String>) -> [(String, Int)] {
+    var genrePlayCount: [String: Int] = [:]
 
+    for r in record {
+        genrePlayCount[r.name, default: 0] += r.count
+    }
+
+    return genrePlayCount.sorted { $0.value > $1.value }
+}
 
 func solution(_ genres: [String], _ plays: [Int]) -> [Int] {
     
     let genre = Set(genres)
     let record = map(genres, plays)
-    let specificGenre = getGenrePlayCount(genres, record, genre)
+    let specificGenre = getGenrePlayCount(record, genre)
     var result: [Int] = []
     
     for (genreName, _) in specificGenre {
@@ -47,6 +45,5 @@ func solution(_ genres: [String], _ plays: [Int]) -> [Int] {
             result.append(filterList[i].index)
         }
     }
-    
-    return result   
+    return result
 }
