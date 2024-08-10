@@ -25,7 +25,7 @@ func getGenrePlayCount(_ genres: [String], _ record: [Record], _ genre: Set<Stri
         specificGenre.append((g, numOfPlays))
     }
     
-    return specificGenre
+    return specificGenre.sorted { $0.1 > $1.1 }
 }
 
    
@@ -51,4 +51,3 @@ func solution(_ genres: [String], _ plays: [Int]) -> [Int] {
     
     return result
 }
-
