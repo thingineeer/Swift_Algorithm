@@ -29,7 +29,6 @@ func getGenrePlayCount(_ genres: [String], _ record: [Record], _ genre: Set<Stri
 }
 
    
-
 func solution(_ genres: [String], _ plays: [Int]) -> [Int] {
     
     let genre = Set(genres)
@@ -40,6 +39,8 @@ func solution(_ genres: [String], _ plays: [Int]) -> [Int] {
     for (genreName, _) in specificGenre {
         let filterList = record.filter { $0.name == genreName }.sorted { $0.count > $1.count }
 
+        
+        // prefix 보다 시간 복잡도가 더 낮았다 (프로그래머스 환경 에서는)
         if filterList.count > 1 {
             for i in 0...1 {
                 result.append(filterList[i].index)
