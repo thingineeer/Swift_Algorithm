@@ -12,5 +12,5 @@ func solution(_ numbers: [Int]) -> String {
         result += str
     }
     
-    return result
+    return result.first == "0" ? "0" : result
 }
