@@ -1,5 +1,5 @@
 // level 2
-// 정확성: 87.5
+// 정확성: 87.5 -> 100 개선
 
 import Foundation
 
@@ -8,15 +8,11 @@ func solution(_ citations: [Int]) -> Int {
     let minValue = citations.min()!
     let maxValue = citations.max()!
 
-    var result = 0
+    var HIndex = -1
 
-    for i in minValue...maxValue {
-        if (citations.filter({ $0 >= i }).count) <= i {
-            result = i
-            break
-        }
+    for i in citations.sorted(by: >) {
+        HIndex = max(HIndex, min(i, citations.filter({ $0 >= i }).count))
     }
     
-    return result
+    return HIndex
 }
-
