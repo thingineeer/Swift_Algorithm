@@ -4,12 +4,9 @@
 import Foundation
 
 func solution(_ citations: [Int]) -> Int {
-
-    let minValue = citations.min()!
-    let maxValue = citations.max()!
-
+    
     var HIndex = -1
-
+    
     for i in citations.sorted(by: >) {
         HIndex = max(HIndex, min(i, citations.filter({ $0 >= i }).count))
     }
