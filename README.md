@@ -1,6 +1,6 @@
 # Swift_Algorithm
 
-Python -> Swift 로 알고리즘를 풀어보는 Repo 입니다.
+Swift 로 알고리즘를 풀어보는 Repo 입니다.
 
 
 <details>
