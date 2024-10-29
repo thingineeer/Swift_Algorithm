@@ -1,21 +1,21 @@
+//
+//  귤고르기.swift
+//  정렬 - level2
+//
+//  Created by 이명진 on 10/28/24.
+//
+
+
 import Foundation
 
-func solution(_ k:Int, _ tangerine:[Int]) -> Int {
+func solution(_ k: Int, _ tangerine: [Int]) -> Int {
     
-    // log(n)
-    let frequency = tangerine.reduce(into: [:]) { counts, number in
-        counts[number, default: 0] += 1
-    }
+    let dict = Dictionary(grouping: tangerine) { $0 }.values
+        .sorted { $0.count > $1.count }
+        .flatMap { $0 }
+        .prefix(k)
 
-    // 빈도수 내림차순, 빈도수가 같을 경우 숫자 내림차순 으로 정렬합니다.
-    // nlog(n)
-    let sortedArr = tangerine.sorted {
-        if frequency[$0]! == frequency[$1]! {
-            return $0 > $1 // 빈도수가 같다면 내림 차순
-        } else {
-            return frequency[$0]! > frequency[$1]!
-        }
-    }
+    let resultSetCount = Set(dict).count
     
-    return Set(sortedArr.prefix(k)).count
+    return resultSetCount
 }
