@@ -1,28 +1,35 @@
-import Foundation
+//
+//  2805.swift
+//  나무 자르기 - S2
+//
+//  Created by 이명진 on 11/15/24.
+//
+//  이분 탐색
 
 let input = readLine()!.split(separator: " ").map { Int($0)! }
-let N = input[0]
-let M = input[1]
-let forest = readLine()!.split(separator: " ").map { Int($0)! }
+let n = input[0]
+let m = input[1]
 
-var s = 0
-var e = forest.max()!
+let trees = readLine()!.split(separator: " ").map { Int($0)! }.sorted()
 
-while s <= e {
-    let mid = (s + e) / 2
+var start = 1
+var end = trees.max()!
 
-    var wood = 0
-    for tree in forest {
+while start <= end {
+    let mid = (start + end) / 2
+    
+    var result = 0
+    for tree in trees {
         if tree >= mid {
-            wood += tree - mid
+            result += tree - mid
         }
     }
-
-    if wood >= M {
-        s = mid + 1
+    
+    if result >= m {
+        start = mid + 1
     } else {
-        e = mid - 1
+        end = mid - 1
     }
 }
 
-print(e)
+print(end)
