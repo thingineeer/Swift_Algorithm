@@ -4,36 +4,36 @@
 //
 //  Created by 이명진 on 4/2/25
 //
-//  구현 (정답 이지만 효율성 테스트 점수 0점)
+//  코드 개선 -> 시간 복잡도: O(N) 으로 해결, 공간 복잡도: 2억개의 메모리 사용 하지 않고 해결
 
 import Foundation
 
 func solution(_ n: Int, _ stations: [Int], _ w: Int) -> Int {
-    var networks = Array(repeating: 0, count: n)
-    var index = 0
     var answer = 0
+    var currentHome = 1
+    var currentStation = 0
     
-    for station in stations { // O(N * W), stations 의 원소는 항상 1 이상
-        let startPointIndex = (station - w - 1 > 0) ? station - w - 1: 0
-        let endPointIndex = (station + w - 1 < n) ? station + w - 1 : n - 1
+    while currentHome <= n {
         
-        for i in startPointIndex...endPointIndex {
-            networks[i] = 1
-        }
-    }
-    
-    while index < n {  // O(N)
-        if networks[index] == 1 {
-            index += 1
-        } else {
-            index += (2 * w + 1)
+        let startRange = stations[currentStation]-w
+        let endRange = stations[currentStation]+w
+        let currentRange = startRange...endRange
+        
+        if currentRange ~= currentHome { // 현재 기지국이 전파 범위에 포함 된다면
+            currentHome = (endRange + 1) // 전파 범위 탈출
+             
+            if currentStation < stations.count - 1 { // 다음 기지국이 있다면
+                currentStation += 1 // 다음 기지국 전파 범위 비교
+            }
+            
+            // 다음 기지국이 없으면 무시
+            
+        } else { // 현재 기지국이 전파 범위에 포함 되지 않는 다면
             answer += 1
+            currentHome += (2 * w + 1)
         }
+
     }
     
     return answer
 }
-
-print(solution(11, [1, 4, 11], 0))
-print(solution(11, [4, 11], 1))
-print(solution(16, [9], 2))
