@@ -1,25 +1,35 @@
-# Swift 알고리즘 Repo
+# 🚀 Swift Algorithm Repository
 
-Swift 로 알고리즘를 풀어보는 Repo 입니다.
+Swift로 코딩 테스트 문제를 해결하고 기록하는 저장소입니다.  
+완벽한 문제 풀이부터 공부가 필요한 문제까지 단계별로 정리합니다.
 
-## ⭐️ Commit Convention ⭐️
+---
 
-#### 백준
-   > [백준] #번호 - 문제분류 난이도
+## 📌 문제 풀이 상태 분류
 
-#### 프로그래머스
-   > [프로그래머스] - 문제분류 난이도
+| 상태 | 설명 |
+|:---:|:---|
+| **Perfect** | 완벽하게 해결한 문제 |
+| **Pending** | 해결했지만 추가 공부가 필요한 문제 |
+| **NotSolve** | 어려워서 해결하지 못한 문제 |
 
+---
 
-<br>
-<br>
+## 📌 Commit Convention
 
-## ⭐️ Other Conventions ⭐️
+문제 출처와 난이도를 포함하여 커밋 메시지를 작성합니다.
 
-[Setting] - 프로젝트 세팅
+```bash
+[문제 풀이 상태 분류] - 문제 유형 - 난이도(티어)
+```
 
-[Docs] - README 등 문서 수정
+## 사이트
 
-[Comment] - 주석 추가 및 수정
+#### ✅ **백준**, **프로그래머스**
 
-[Refactor] - 알고리즘 전면 수정
+예시
+
+```bash
+[Perfect] - DFS - level3
+[NotSolve] - DFS - 골드1
+```
